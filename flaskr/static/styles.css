@@ -1,0 +1,268 @@
+/* Reset some default browser styles */
+body, h1, ul, li, form, label, input {
+    margin: 0;
+    padding: 0;
+}
+
+/* Add a background color and some padding to the page */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Style the header */
+h1 {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Style the list of links */
+ul {
+    list-style-type: none;
+    bottom: 0;
+}
+
+ul li {
+    background-color: #333;
+    color: white; 
+    margin: 8px 0;
+    padding: 14px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Style the form */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;          /* Flex layout will ensure horizontal alignment */
+    align-items: center;    /* Vertically aligns the child elements in the middle */
+    gap: 8px;   
+    width: 100%;    
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"] {
+    flex:4;
+    width: 80%;
+    padding: 5px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1;          /* Allows the text input to take up available space */ 
+}
+
+input[type="submit"] {
+    flex:1;
+    width: 20%;
+    background-color: #333;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: auto;      /* Reduced height */
+    font-size: 12px;   /* Reduced font-size */
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Style the image */
+img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+/* Chatbox Styles */
+/* Wrapper around the entire chat */
+#chat-wrapper {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+
+/* Chat Box */
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Firefox support */
+    padding: 20px;
+    height: calc(100vh - 330px);
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom: none;
+}
+
+/* Chat Message Styles */
+.chat-message {
+    margin: 10px;
+}
+
+/* User Messages */
+.chat-message.user .chat-bubble {
+    background-color: #e6f7ff;
+    color: #333;
+    float: right;
+    border-radius: 12px 0px 12px 12px;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* Assistant Messages */
+.chat-message.assistant .chat-bubble {
+    background-color: #f1f1f1;
+    color: #333;
+    float: left;
+    border-radius: 0px 12px 12px 12px;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* Clear floats */
+.chat-message::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.chat-message {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.chat-bubble {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.user .chat-bubble {
+    background-color: #f1f1f1;
+}
+
+.assistant .chat-bubble {
+    background-color: #2196F3;
+    color: white;
+}
+#chat-header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.5em;
+}
+#chat-form {
+    display: flex;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;  /* Keeps the form fixed on the page */
+    bottom: 80px;     /* 20px space from the bottom */
+    left: 0;          /* Left boundary */
+    right: 0;         /* Right boundary */
+    margin-left: auto;  /* Center-align: auto-margins on the left */
+    margin-right: auto; /* Center-align: auto-margins on the right */
+    width: 80%;       /* Assuming you want the form to take up 80% width of the viewport */
+    /* z-index: 1000;    Optional but good to have to keep this element above others */
+}
+#chat-form input {
+    flex: 4;
+    width:80%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#chat-form button {
+    flex:1;
+    width:20%;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#chat-form button:hover {
+    background-color: #0056b3;
+}
+.link-container {
+    margin-top: 20px; /* Add some space between the chat box and the links */
+    text-align: center; /* Center align the links */
+    position: fixed;
+    bottom: 30px;     /* 20px space from the bottom */
+    left: 0;          /* Left boundary */
+    right: 0;         /* Right boundary */
+    margin-left: auto;  /* Center-align: auto-margins on the left */
+    margin-right: auto; /* Center-align: auto-margins on the right */
+    width: 100%;       /* Assuming you want the form to take up 80% width of the viewport */
+    z-index: 1000;    /* Optional but good to have to keep this element above others */
+}
+
+.link-container a {
+    display: inline-block; /* Display links in a line */
+    margin: 0 10px; /* Add some horizontal spacing between the links */
+    padding: 10px; /* Add some padding for a better look */
+    background-color: #333; /* Same background as your existing styles */
+    color: white; /* Text color */
+    border-radius: 8px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+}
+
+.link-container a:hover {
+    background-color: #555; /* Change color on hover */
+}
+#conversation-container {
+    width: 80%;
+    margin: auto;
+    height:20%
+}
+
+.Date {
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.user, .assistant {
+    margin: 35px;
+    padding: 10px;
+    border-radius: 500px;
+}
+
+.user {
+    background-color: #e6f7ff;
+}
+
+.assistant {
+    background-color: #f1f1f1;
+}

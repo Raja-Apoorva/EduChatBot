@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversation History</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div id="conversation-container">
+        {% for conversation in conversations %}
+            <div class="Date">
+                <p>{{ conversation['Date'].strftime('%Y-%m-%d %H:%M:%S') }}</p>
+            </div>
+            {% for message in conversation['conversation'] %}
+                <div class="{{ message['role'] }}">
+                    {% if message['content']|is_image_url %}
+                        <!-- Fetch and render image from Flask endpoint -->
+                        <img src="{{ url_for('serve_image', key=session['key']) }}" alt="Image from MongoDB">
+                    {% else %}
+                        <!-- Render content as text -->
+                        <p>{{ message['content'] }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="link-container"> <!-- New container for the links -->
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
